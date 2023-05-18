@@ -15,11 +15,11 @@ let proxy = cors_proxy.createServer({
   removeHeaders: [] // Do not remove any headers.
 });
 
-// router.get('/', (req, res) => {
-//   res.writeHead(200, { 'Content-Type': 'text/html' });
-//   res.write('<h1>Hello from Express.js!</h1>');
-//   res.end();
-// });
+router.get('/', (req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/html' });
+  res.write('<h1>Hello from Express.js!</h1>');
+  res.end();
+});
 
 /* Attach our cors proxy to the existing API on the /proxy endpoint. */
 router.get('/proxy/:proxyUrl*', (req, res) => {
