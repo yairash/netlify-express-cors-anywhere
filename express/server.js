@@ -12,7 +12,7 @@ const router = express.Router();
 let proxy = cors_proxy.createServer({
   originWhitelist: [], // Allow all origins
   requireHeaders: [], // Do not require any headers.
-  removeHeaders: [] // Do not remove any headers.
+  removeHeaders: ['x-request-id'] // Do not remove any headers.
 });
 
 router.get('/', (req, res) => {
