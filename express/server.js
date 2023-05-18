@@ -25,8 +25,10 @@ router.get('/', (req, res) => {
 router.get('/proxy/:proxyUrl*', (req, res) => {
   req.url = req.url.replace('/proxy/', '/'); // Strip '/proxy' from the front of the URL, else the proxy won't work.
   proxy.emit('request', req, res);
-  res.sendStatus(200);
-  res.end()
+
+  proxy.on('response', (proxyRes) => {
+    res.status(proxyRes.statusCode).send(proxyRes.body);
+  });
 });
 
 // router.get('/another', (req, res) => res.json({ route: req.originalUrl }));
