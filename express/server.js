@@ -12,16 +12,17 @@ router.get('/', async (req, res) => {
     await savePage(urlToFetch);
     fs.readFile('currentDom.html', 'utf8', (err, fileContent) => {
       if (err) {
-        console.error(err);
-        res.status(500).send('Error reading file');
+        res.write("Error with reading currentDom.html");
+        res.writeHead(500, {});
       } else {
-        res.status(200).send(fileContent);
+        res.write(fileContent);
+        res.writeHead(200, {});
       }
     });
   }
   catch (error) {
-    console.log(error.message);
-    res.status(200).send("no externalurl provided");
+    res.write("no externalurl provided");
+    res.writeHead(200, {});
   }
 });
 
