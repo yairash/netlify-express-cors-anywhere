@@ -22,7 +22,8 @@
   },
   "homepage": "https://github.com/neverendingqs/netlify-express#readme",
   "dependencies": {
-    "cors-anywhere": "^0.4.4"
+    "cors-anywhere": "^0.4.4",
+    "puppeteer": "^20.5.0"
   },
   "devDependencies": {
     "body-parser": "^1.19.0",
